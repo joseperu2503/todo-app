@@ -4,22 +4,24 @@ import './TodoItem.css';
 function TodoItem(props) {
 
     return (
-        <li className="TodoItem">
-        <span 
-            className={`Icon Icon-check ${props.completed && 'Icon-check--active'}`}
-            onClick={props.onComplete}
-        >
-            √
-        </span>
-        <p className={`TodoItem-p ${props.completed && 'TodoItem-p--complete'}`}>
-            {props.text}
-        </p>
-        <span 
-            className="Icon Icon-delete"
-            onClick={props.onDelete}
-        >
-            X
-        </span>
+        <li className="rounded-lg w-full border border-slate-200 shadow-lg flex items-center p-4 my-4 justify-between">
+            <div className='flex'>
+                <span 
+                    className={`text-lg cursor-pointer ${props.completed ? 'text-green-600': 'text-slate-300'}`}
+                    onClick={props.onComplete}
+                >
+                    <i class="fas fa-check"></i>
+                </span>
+                <p className={`ml-5 ${props.completed && 'line-through'}`}>
+                    {props.text}
+                </p>
+            </div>
+            <span 
+                className="text-lg cursor-pointer hover:text-red-600"
+                onClick={props.onDelete}
+            >
+                <i class="fas fa-trash"></i>
+            </span>
         </li>
     );
 }

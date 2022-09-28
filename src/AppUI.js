@@ -12,27 +12,29 @@ function AppUI() {
     const {error,loading,searchedTodos,completeTodo,deleteTodo,openModal,setOpenModal} = React.useContext(TodoContext)
     return(
         <React.Fragment>
-            <TodoCounter/>
-            <TodoSearch/>
-                <TodoList>
-                    {error & <p>hay un error</p>}
-                    {loading && <p>cargando</p>}
-                    {(!loading && !searchedTodos.length) && <p>Crea tu primer Todo</p>}
-                    {searchedTodos.map((todo,index) => (
-                    <TodoItem
-                        key={todo.text}
-                        text={todo.text}
-                        completed={todo.completed}
-                        onComplete={() => completeTodo(index)}
-                        onDelete={() => deleteTodo(index)}
-                    />
-                    ))}
-                </TodoList>
-                {openModal && 
-                    <Modal>
-                        <TodoForm/>
-                    </Modal>
-                }
+            <div className='w-full bg-blue-700 py-10 rounded-b-3xl mb-8'>
+                <TodoSearch/>
+                <TodoCounter/>
+            </div>
+            <TodoList>
+                {error && <p>hay un error</p>}
+                {loading && <p>cargando</p>}
+                {(!loading && !searchedTodos.length) && <p>Crea tu primer Todo</p>}
+                {searchedTodos.map((todo,index) => (
+                <TodoItem
+                    key={todo.text}
+                    text={todo.text}
+                    completed={todo.completed}
+                    onComplete={() => completeTodo(index)}
+                    onDelete={() => deleteTodo(index)}
+                />
+                ))}
+            </TodoList>
+            {openModal && 
+                <Modal>
+                    <TodoForm/>
+                </Modal>
+            }
                 
             <CreateTodoButton
                 setOpenModal={setOpenModal}

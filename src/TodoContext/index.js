@@ -29,7 +29,7 @@ function TodoProvider(props){
 
     const completeTodo = (index) => {
         const newTodos = [...todos]
-        newTodos[index].completed = true
+        newTodos[index].completed = !newTodos[index].completed
         saveTodos(newTodos)
     }
 
