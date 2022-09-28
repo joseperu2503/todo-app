@@ -17,7 +17,7 @@ function TodoItem(props) {
                 </p>
             </div>
             <span 
-                className="text-lg cursor-pointer hover:text-red-600"
+                className="text-lg cursor-pointer text-slate-400 hover:text-red-600"
                 onClick={props.onDelete}
             >
                 <i class="fas fa-trash"></i>
