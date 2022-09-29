@@ -23,9 +23,9 @@ function TodoSearch({searchValue,setSearchValue}) {
                         onChange={onSearchValueChange}
                     />
                     {searchValue.length > 0 ? 
-                        <i class="fas fa-times text-slate-400 cursor-pointer hover:text-blue-700" onClick={clear}></i>
+                        <i className="fas fa-times text-slate-400 cursor-pointer hover:text-blue-700" onClick={clear}></i>
                     : 
-                        <i class="fas fa-search text-slate-400"></i>
+                        <i className="fas fa-search text-slate-400"></i>
                     }
                     
                 </div>

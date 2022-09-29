@@ -9,6 +9,9 @@ import { TodoSearch } from './components/TodoSearch';
 import { Modal } from './components/Modal';
 import { TodoForm } from './components/TodoForm';
 import { TodoHeader } from './components/TodoHeader';
+import { TodosLoading } from './components/TodosLoading';
+import { TodosError } from './components/TodosError';
+import { EmptyTodos } from './components/EmptyTodos';
 
 // const defaultTodos = [
 //   { text: 'cortar cebolla', completed: false },
@@ -46,11 +49,17 @@ function App() {
           completedTodos={completedTodos}
         />
       </TodoHeader>
-      <TodoList>
-        {error && <p>hay un error</p>}
-        {loading && <p>cargando</p>}
-        {(!loading && !searchedTodos.length) && <p>Crea tu primer Todo</p>}
-        {searchedTodos.map((todo,index) => (
+      <TodoList
+        error={error}
+        loading={loading}
+        searchValue={searchValue}
+        searchedTodos={searchedTodos}
+        onError={() => <TodosError/>}
+        onLoading={() => <TodosLoading/>}
+        onEmptyTodos={() => <EmptyTodos/>}
+        onEmptySearchResults={(value) => <p>No se encontraron coincidencias para {value}</p>}
+      >
+        {(todo,index)=>(
           <TodoItem
             key={todo.text}
             text={todo.text}
@@ -58,7 +67,7 @@ function App() {
             onComplete={() => completeTodo(index)}
             onDelete={() => deleteTodo(index)}
           />
-        ))}
+        )}
       </TodoList>
       {openModal && 
           <Modal>

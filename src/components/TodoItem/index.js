@@ -10,7 +10,7 @@ function TodoItem(props) {
                     className={`text-lg cursor-pointer ${props.completed ? 'text-green-600': 'text-slate-300'}`}
                     onClick={props.onComplete}
                 >
-                    <i class="fas fa-check"></i>
+                    <i className="fas fa-check"></i>
                 </span>
                 <p className={`ml-5 ${props.completed && 'line-through'}`}>
                     {props.text}
@@ -20,7 +20,7 @@ function TodoItem(props) {
                 className="text-lg cursor-pointer text-slate-400 hover:text-red-600"
                 onClick={props.onDelete}
             >
-                <i class="fas fa-trash"></i>
+                <i className="fas fa-trash"></i>
             </span>
         </li>
     );
