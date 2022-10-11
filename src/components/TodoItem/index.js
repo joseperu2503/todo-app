@@ -4,7 +4,7 @@ import './TodoItem.css';
 function TodoItem(props) {
 
     return (
-        <li className="rounded-lg w-full border border-slate-200 shadow-lg flex items-center p-4 my-4 justify-between">
+        <li className="rounded-lg w-full border border-slate-200 shadow-lg flex items-center p-4 my-4 justify-between h-16">
             <div className='flex'>
                 <span 
                     className={`text-lg cursor-pointer ${props.completed ? 'text-green-600': 'text-slate-300'}`}
